@@ -1,7 +1,5 @@
 package model;
 
-
-
 public class Espaco {
 	protected Integer idEspaco;
 	protected Integer ocupado;
@@ -19,10 +17,8 @@ public class Espaco {
 	        this.extintor = extintor;
 	        
 	}
-	
-	
-	
-	  public Integer getIdEspaco() {
+
+	public Integer getIdEspaco() {
 		return idEspaco;
 	}
 
@@ -68,13 +64,7 @@ public class Espaco {
 		this.extintor = extintor;
 	}
 	
-	
-
-
-	 
-		
-}
-
+};
 
 
 
