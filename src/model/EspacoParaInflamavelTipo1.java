@@ -6,8 +6,8 @@ public class EspacoParaInflamavelTipo1 extends Espaco{
 
 
 	public EspacoParaInflamavelTipo1(Integer idEspaco, Integer ocupado, String tamanho, Integer ativo,
-			String extintor) {
-		super(idEspaco, ocupado, tamanho, ativo, extintor);
+			String extintor, String delete) {
+		super(idEspaco, ocupado, tamanho, ativo, extintor, delete);
 		// TODO Auto-generated constructor stub
 	}
 

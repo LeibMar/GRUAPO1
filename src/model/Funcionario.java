@@ -8,11 +8,13 @@ public class Funcionario {
 	protected Integer idFuncionario;
 	protected String nomeFuncionario;
 	protected String sobrenomeFuncionario;
+	protected String senha;
 	protected Integer hierarquia;
 	protected Integer funcionarioOrigem;
 	protected Integer ativo;
+	protected String delete;
 	
-	public Funcionario(Integer idFuncionario, String nomeFuncionario, String sobrenomeFuncionario, Integer hierarquia, Integer funcionarioOrigem, Integer ativo) {
+	public Funcionario(Integer idFuncionario, String nomeFuncionario, String sobrenomeFuncionario, Integer hierarquia, Integer funcionarioOrigem, Integer ativo, String delete) {
 		
         this.idFuncionario = idFuncionario;
         this.nomeFuncionario = nomeFuncionario;
@@ -20,6 +22,7 @@ public class Funcionario {
         this.hierarquia = hierarquia;
         this.funcionarioOrigem = funcionarioOrigem;
         this.ativo = ativo;
+        this.delete = delete;
      }
 	
 	public static void InserirFuncionario() {

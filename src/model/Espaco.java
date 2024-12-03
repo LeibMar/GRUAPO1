@@ -10,16 +10,16 @@ public class Espaco {
 	protected String tamanho;
 	protected Integer ativo;
 	protected String extintor;
+	protected String delete;
 	
-	
-	public Espaco(Integer idEspaco, Integer ocupado, String tamanho, Integer ativo, String extintor) {
+	public Espaco(Integer idEspaco, Integer ocupado, String tamanho, Integer ativo, String extintor, String delete) {
 	
 	        this.idEspaco = idEspaco;
 	        this.ocupado = ocupado;
 	        this.tamanho = tamanho;
 	        this.ativo = ativo;
 	        this.extintor = extintor;
-	        
+	        this.delete = delete;
 	}
 	
 	public static void InserirEspaco() {

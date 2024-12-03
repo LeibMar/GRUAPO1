@@ -15,8 +15,9 @@ public class Cliente {
 	protected String emailCliente;
 	protected LocalDate dataCadastro;
 	protected Integer ativo;
+	protected String delete;
 	
-	public Cliente(Integer idCliente, String nomeCliente, String sobrenomeCliente, String cpfCliente, String enderecoCliente, String emailCliente,  LocalDate dataCadastro, Integer ativo) {
+	public Cliente(Integer idCliente, String nomeCliente, String sobrenomeCliente, String cpfCliente, String enderecoCliente, String emailCliente,  LocalDate dataCadastro, Integer ativo, String delete) {
 	
 	        this.idCliente = idCliente;
 	        this.nomeCliente = nomeCliente;
@@ -26,6 +27,7 @@ public class Cliente {
 	        this.emailCliente = emailCliente;
 	        this.dataCadastro = dataCadastro;
 	        this.ativo = ativo;
+	        this.delete = delete;
 	}
 	
 	public static void InserirCliente() {

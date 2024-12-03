@@ -4,8 +4,8 @@ public class EspacoPadrao extends Espaco{
 
 
 
-	public EspacoPadrao(Integer idEspaco, Integer ocupado, String tamanho, Integer ativo, String extintor) {
-		super(idEspaco, ocupado, tamanho, ativo, extintor);
+	public EspacoPadrao(Integer idEspaco, Integer ocupado, String tamanho, Integer ativo, String extintor, String delete) {
+		super(idEspaco, ocupado, tamanho, ativo, extintor, delete);
 		// TODO Auto-generated constructor stub
 	}
 

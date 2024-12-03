@@ -14,8 +14,9 @@ public class Locacao {
 	protected Integer idCliente;
 	protected Integer ativo;
 	protected Integer renovado;
+	protected String delete;
 	
-	public Locacao(Integer idLocacao, LocalDate dataInicioLocacao, LocalDate dataFimLocacao, Integer statusPagamento, Integer idCliente, Integer ativo, Integer renovado) {
+	public Locacao(Integer idLocacao, LocalDate dataInicioLocacao, LocalDate dataFimLocacao, Integer statusPagamento, Integer idCliente, Integer ativo, Integer renovado, String delete) {
 		
         this.idLocacao = idLocacao;
         this.dataInicioLocacao = dataInicioLocacao;
@@ -24,6 +25,7 @@ public class Locacao {
         this.idCliente = idCliente;
         this.ativo = ativo;
         this.renovado = renovado;
+        this.delete = delete;
      }
 	
 	public static void InserirLocacao() {
