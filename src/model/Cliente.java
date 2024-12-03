@@ -1,6 +1,10 @@
 package model;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.time.LocalDate;
+
+import banco.DBConnection;
 
 public class Cliente {
 	protected Integer idCliente;
@@ -10,19 +14,35 @@ public class Cliente {
 	protected String enderecoCliente;
 	protected String emailCliente;
 	protected LocalDate dataCadastro;
+	protected Integer ativo;
 	
-	public Cliente(Integer idCliente, String nomeCliente, String sobrenomeCliente, String cpfCliente, String enderecoCliente, String emailCliente,  LocalDate dataCadastro) {
+	public Cliente(Integer idCliente, String nomeCliente, String sobrenomeCliente, String cpfCliente, String enderecoCliente, String emailCliente,  LocalDate dataCadastro, Integer ativo) {
 	
 	        this.idCliente = idCliente;
 	        this.nomeCliente = nomeCliente;
 	        this.sobrenomeCliente = sobrenomeCliente;
 	        this.cpfCliente = cpfCliente;
 	        this.enderecoCliente = enderecoCliente;
-	         this.emailCliente = emailCliente;
-		this.dataCadastro = dataCadastro;
+	        this.emailCliente = emailCliente;
+	        this.dataCadastro = dataCadastro;
+	        this.ativo = ativo;
 	}
 	
-	
+	public static void InserirCliente() {
+		DBConnection Connection = new DBConnection();
+		
+		try{
+			String sql="INSERT INTO cliente(nomeCliente, sobrenomeCliente, cpfCliente, enderecoCliente, emailCliente, dataCadastro, ativo) VALUES('John', 'Doe', '00011122279', 'Rua dos Mamonas, 200, Cidade Central, SP, 07110040', 'john.doe@gmail.com', '2010/11/01', '1');";
+			PreparedStatement statement = Connection.getConnection().prepareStatement(sql);
+			//Ao trabalhar com valores passados para a função de inserir consultar: "https://moodle.gru.ifsp.edu.br/pluginfile.php/146586/mod_resource/content/6/ClassesRelacionamentov2.pdf" pag13
+			statement.execute();
+			statement.close();
+		}
+		catch(SQLException u){
+			System.out.println("Erro ao tentar inserir novo cadastro de Cliente!");
+			throw new RuntimeException(u);
+		}
+	}
 	
 	  public Integer getIdCliente() {
 		return idCliente;
