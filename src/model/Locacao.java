@@ -43,6 +43,54 @@ public class Locacao {
 			throw new RuntimeException(u);
 		}
 	}
+	
+	public static void LerLocacao() {
+		DBConnection Connection = new DBConnection();
+		
+		try{
+			String sql="SELECT FROM locacao WHERE dataInicioLocacao = '2024/12/01' or dataFimLocacao = '2025/02/01' or idCliente = '1' or idLocacao = '1'";
+			PreparedStatement statement = Connection.getConnection().prepareStatement(sql);
+			
+			statement.execute();
+			statement.close();
+		}
+		catch(SQLException u){
+			System.out.println("Locacao não encontrado!");
+			throw new RuntimeException(u);
+		}
+	}
+	
+	public static void AtualizarLocacao() {
+		DBConnection Connection = new DBConnection();
+		
+		try{
+			String sql="UPDATE locacao SET dataInicioLocacao = '2024/05/1o', dataFimLocacao = '2025/04/02', statusPagamento = '1', idCliente = '1', renovado = '1',  ativo = 1  WHERE idLocacao = '1'";
+			PreparedStatement statement = Connection.getConnection().prepareStatement(sql);
+			
+			statement.execute();
+			statement.close();
+		}
+		catch(SQLException u){
+			System.out.println("Locacao não atualizada!");
+			throw new RuntimeException(u);
+		}
+	}
+	
+	public static void DeletarLocacao() {
+		DBConnection Connection = new DBConnection();
+		
+		try{
+			String sql="UPDATE locacao SET  ativo = 0 WHERE idLocacao = '1'";
+			PreparedStatement statement = Connection.getConnection().prepareStatement(sql);
+			
+			statement.execute();
+			statement.close();
+		}
+		catch(SQLException u){
+			System.out.println("Locacao não atualizada!");
+			throw new RuntimeException(u);
+		}
+	}
 
 	public Integer getIdLocacao() {
 		return idLocacao;

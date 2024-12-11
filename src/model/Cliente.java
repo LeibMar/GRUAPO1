@@ -45,7 +45,53 @@ public class Cliente {
 			throw new RuntimeException(u);
 		}
 	}
+	public static void LerCliente() {
+		DBConnection Connection = new DBConnection();
+		
+		try{
+			String sql="SELECT FROM cliente WHERE nomeCliente = 'John' and sobrenomeCliente = 'Doe' or cpfCliente = ''";
+			PreparedStatement statement = Connection.getConnection().prepareStatement(sql);
+			//Ao trabalhar com valores passados para a função de inserir consultar: "https://moodle.gru.ifsp.edu.br/pluginfile.php/146586/mod_resource/content/6/ClassesRelacionamentov2.pdf" pag13
+			statement.execute();
+			statement.close();
+		}
+		catch(SQLException u){
+			System.out.println("Cliente não encontrado!");
+			throw new RuntimeException(u);
+		}
+	}
 	
+	public static void AtualizarCliente() {
+		DBConnection Connection = new DBConnection();
+		
+		try{
+			String sql="UPDATE cliente SET nomeCliente = 'Jane', sobrenomeCliente = 'Smith', cpfCliente = '000000000', enderecoCliente = 'Avenida Salgado Filho', emailCliente = 'JameSmith@mail', dataCadastro ='2010/11/01', ativo = 1  WHERE idCliente = '1'";
+			PreparedStatement statement = Connection.getConnection().prepareStatement(sql);
+			
+			statement.execute();
+			statement.close();
+		}
+		catch(SQLException u){
+			System.out.println("Cliente não atualizado!");
+			throw new RuntimeException(u);
+		}
+	}
+	
+	public static void DeletarCliente() {
+		DBConnection Connection = new DBConnection();
+		
+		try{
+			String sql="UPDATE cliente SET  ativo = 0 WHERE idCliente = '1'";
+			PreparedStatement statement = Connection.getConnection().prepareStatement(sql);
+			
+			statement.execute();
+			statement.close();
+		}
+		catch(SQLException u){
+			System.out.println("Cliente não atualizado!");
+			throw new RuntimeException(u);
+		}
+	}
 	  public Integer getIdCliente() {
 		return idCliente;
 	}

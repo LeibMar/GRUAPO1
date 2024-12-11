@@ -40,7 +40,53 @@ public class Funcionario {
 			throw new RuntimeException(u);
 		}
 	}
-
+	public static void LerFuncionario() {
+		DBConnection Connection = new DBConnection();
+		
+		try{
+			String sql="SELECT FROM funcionario WHERE nomeFuncionario = 'John' and sobrenomeFuncionario = 'Doe' or funcionarioOrigem = ''";
+			PreparedStatement statement = Connection.getConnection().prepareStatement(sql);
+			//Ao trabalhar com valores passados para a função de inserir consultar: "https://moodle.gru.ifsp.edu.br/pluginfile.php/146586/mod_resource/content/6/ClassesRelacionamentov2.pdf" pag13
+			statement.execute();
+			statement.close();
+		}
+		catch(SQLException u){
+			System.out.println("Cliente não encontrado!");
+			throw new RuntimeException(u);
+		}
+	}
+	
+	public static void AtualizarFuncionario() {
+		DBConnection Connection = new DBConnection();
+		
+		try{
+			String sql="UPDATE funcionario SET nomeFuncionario = 'Jane', sobrenomeFuncionario = 'Smith', hierarquia = '2', funcionarioOrigem = '2', ativo = 1  WHERE idFuncionario = '1'";
+			PreparedStatement statement = Connection.getConnection().prepareStatement(sql);
+			
+			statement.execute();
+			statement.close();
+		}
+		catch(SQLException u){
+			System.out.println("Funcionario não atualizado!");
+			throw new RuntimeException(u);
+		}
+	}
+	
+	public static void DeletarFuncionario() {
+		DBConnection Connection = new DBConnection();
+		
+		try{
+			String sql="UPDATE funcionario SET  ativo = 0 WHERE idFuncionario= '1'";
+			PreparedStatement statement = Connection.getConnection().prepareStatement(sql);
+			
+			statement.execute();
+			statement.close();
+		}
+		catch(SQLException u){
+			System.out.println("Funcionario não atualizado!");
+			throw new RuntimeException(u);
+		}
+	}
 	public Integer getIdFuncionario() {
 		return idFuncionario;
 	}
